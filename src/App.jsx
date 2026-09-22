@@ -143,10 +143,10 @@ function App() {
       <main>
         <section className="hero" id="home">
           <div className="hero-image">
-            <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=90"
-              alt="Beauty model editorial portrait"
-            />
+           <img
+  src="/images/01_homepage_hero_16x9.png"
+  alt="Paridhi Sharma — Beauty Model & Creative Collaborator"
+/>
           </div>
 
           <div className="hero-content container">
