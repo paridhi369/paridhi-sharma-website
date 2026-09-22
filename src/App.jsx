@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   ArrowRight,
   Check,
@@ -16,21 +17,25 @@ const services = [
     number: "01",
     title: "Beauty Model Shoots",
     text: "Professional beauty modelling for makeup artists, salons and beauty professionals.",
+    image: "/images/02_service_beauty_model_4x5.png",
   },
   {
     number: "02",
     title: "Manicure & Pedicure",
     text: "Before, process and after content that clearly showcases your beauty work.",
+    image: "/images/02_service_beauty_model_4x5.png",
   },
   {
     number: "03",
     title: "Bridal Makeup",
     text: "Elegant bridal looks created to be photographed, filmed and showcased beautifully.",
+    image: "/images/03_service_bridal_makeup_4x5.png",
   },
   {
     number: "04",
     title: "Party & Occasion Makeup",
     text: "Creative makeup looks for portfolios, social media campaigns and promotional content.",
+    image: "/images/04_service_occasion_makeup_4x5.png",
   },
 ];
 
@@ -41,22 +46,29 @@ const portfolio = [
     image: "/images/05_portfolio_bridal_look_01_4x5.png",
   },
   {
+    title: "Bridal Look",
+    category: "Bridal",
+    image: "/images/06_portfolio_bridal_look_02_4x5.png",
+  },
+  {
     title: "Beauty Portrait",
     category: "Beauty",
-    image:
-      "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1000&q=85",
+    image: "/images/07_portfolio_beauty_look_03_4x5.png",
   },
   {
-    title: "Traditional Look",
-    category: "Bridal",
-    image:
-      "https://images.unsplash.com/photo-1594736797933-d0b22e4c0a9a?auto=format&fit=crop&w=1000&q=85",
-  },
-  {
-    title: "Creative Makeup",
+    title: "Creative Beauty",
     category: "Makeup",
-    image:
-      "https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1000&q=85",
+    image: "/images/08_portfolio_beauty_look_04_4x5.png",
+  },
+  {
+    title: "Editorial Look",
+    category: "Beauty",
+    image: "/images/09_portfolio_beauty_look_05_4x5.png",
+  },
+  {
+    title: "Signature Look",
+    category: "Beauty",
+    image: "/images/10_portfolio_beauty_look_06_4x5.png",
   },
 ];
 
@@ -92,6 +104,7 @@ function App() {
       behavior: "smooth",
       block: "start",
     });
+
     setMenuOpen(false);
   };
 
@@ -102,6 +115,7 @@ function App() {
         <div className="container nav">
           <button className="brand" onClick={() => scrollTo("home")}>
             <span className="brand-mark">PS</span>
+
             <span>
               <strong>PARIDHI</strong>
               <small>BEAUTY MODEL</small>
@@ -111,8 +125,12 @@ function App() {
           <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
             <button onClick={() => scrollTo("home")}>Home</button>
             <button onClick={() => scrollTo("services")}>Services</button>
-            <button onClick={() => scrollTo("portfolio")}>Portfolio</button>
-            <button onClick={() => scrollTo("process")}>How It Works</button>
+            <button onClick={() => scrollTo("portfolio")}>
+              Portfolio
+            </button>
+            <button onClick={() => scrollTo("process")}>
+              How It Works
+            </button>
             <button onClick={() => scrollTo("contact")}>Contact</button>
           </nav>
 
@@ -142,10 +160,10 @@ function App() {
       <main>
         <section className="hero" id="home">
           <div className="hero-image">
-           <img
-  src="/images/01_homepage_hero_16x9.png"
-  alt="Paridhi Sharma — Beauty Model & Creative Collaborator"
-/>
+            <img
+              src="/images/01_homepage_hero_16x9.png"
+              alt="Paridhi Sharma — Beauty Model & Creative Collaborator"
+            />
           </div>
 
           <div className="hero-content container">
@@ -187,10 +205,12 @@ function App() {
                 <strong>Beauty</strong>
                 <span>Focused</span>
               </div>
+
               <div>
                 <strong>Content</strong>
                 <span>Ready</span>
               </div>
+
               <div>
                 <strong>Creative</strong>
                 <span>Collaboration</span>
@@ -204,6 +224,7 @@ function App() {
           <div className="container intro-grid">
             <div>
               <p className="eyebrow">FOR BEAUTY PROFESSIONALS</p>
+
               <h2>
                 Your makeup deserves
                 <br />
@@ -217,10 +238,11 @@ function App() {
                 photography and content help that work become a portfolio that
                 attracts the next client.
               </p>
+
               <p>
                 Paridhi collaborates with beauty professionals as a model for
-                makeup shoots, beauty content and transformation-focused
-                social media creatives.
+                makeup shoots, beauty content and transformation-focused social
+                media creatives.
               </p>
             </div>
           </div>
@@ -232,6 +254,7 @@ function App() {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">COLLABORATION SERVICES</p>
+
                 <h2>
                   Made for your
                   <br />
@@ -249,11 +272,23 @@ function App() {
               {services.map((service) => (
                 <article className="service-card" key={service.number}>
                   <span className="service-number">{service.number}</span>
-                  <div className="service-icon">
-                    <Sparkles size={20} />
-                  </div>
+
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    style={{
+                      width: "100%",
+                      height: "230px",
+                      objectFit: "cover",
+                      display: "block",
+                      margin: "24px 0 25px",
+                    }}
+                  />
+
                   <h3>{service.title}</h3>
+
                   <p>{service.text}</p>
+
                   <button onClick={() => scrollTo("contact")}>
                     Enquire Now <ArrowRight size={15} />
                   </button>
@@ -269,6 +304,7 @@ function App() {
             <div className="transformation-header">
               <div>
                 <p className="eyebrow">CONTENT THAT TELLS THE STORY</p>
+
                 <h2>
                   Before.
                   <br />
@@ -285,21 +321,48 @@ function App() {
             <div className="transformation-grid">
               <div className="transformation-card">
                 <span>01</span>
-                <div className="fake-image before-image">
+
+                <div
+                  className="fake-image before-image"
+                  style={{
+                    backgroundImage:
+                      "url('/images/02_service_beauty_model_4x5.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
                   <span>BEFORE</span>
                 </div>
               </div>
 
               <div className="transformation-card">
                 <span>02</span>
-                <div className="fake-image process-image">
+
+                <div
+                  className="fake-image process-image"
+                  style={{
+                    backgroundImage:
+                      "url('/images/03_service_bridal_makeup_4x5.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
                   <span>PROCESS</span>
                 </div>
               </div>
 
               <div className="transformation-card">
                 <span>03</span>
-                <div className="fake-image after-image">
+
+                <div
+                  className="fake-image after-image"
+                  style={{
+                    backgroundImage:
+                      "url('/images/04_service_occasion_makeup_4x5.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
                   <span>AFTER</span>
                 </div>
               </div>
@@ -313,6 +376,7 @@ function App() {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">SELECTED WORK</p>
+
                 <h2>
                   Beauty in
                   <br />
@@ -335,6 +399,7 @@ function App() {
                   key={item.title}
                 >
                   <img src={item.image} alt={item.title} />
+
                   <div className="portfolio-overlay">
                     <span>{item.category}</span>
                     <h3>{item.title}</h3>
@@ -372,6 +437,7 @@ function App() {
           <div className="container">
             <div className="section-heading centered">
               <p className="eyebrow">SIMPLE COLLABORATION</p>
+
               <h2>
                 From idea
                 <br />
@@ -382,7 +448,9 @@ function App() {
             <div className="process-grid">
               <div className="process-step">
                 <span>01</span>
+
                 <h3>Tell us your idea</h3>
+
                 <p>
                   Share your service, makeup concept, city and preferred shoot
                   date.
@@ -391,16 +459,19 @@ function App() {
 
               <div className="process-step">
                 <span>02</span>
+
                 <h3>Plan the shoot</h3>
+
                 <p>
-                  We discuss the look, setup, location and content
-                  requirements.
+                  We discuss the look, setup, location and content requirements.
                 </p>
               </div>
 
               <div className="process-step">
                 <span>03</span>
+
                 <h3>Create together</h3>
+
                 <p>
                   Paridhi collaborates as your beauty model for the planned
                   shoot.
@@ -409,7 +480,9 @@ function App() {
 
               <div className="process-step">
                 <span>04</span>
+
                 <h3>Show your work</h3>
+
                 <p>
                   Use your final photos and videos across your portfolio and
                   social media.
@@ -424,11 +497,13 @@ function App() {
           <div className="container arrange-grid">
             <div>
               <p className="eyebrow">CLEAR EXPECTATIONS</p>
+
               <h2>
                 You bring the
                 <br />
                 <em>art.</em>
               </h2>
+
               <p className="arrange-intro">
                 The beauty professional generally manages the makeup, costume,
                 location and overall shoot setup.
@@ -447,6 +522,7 @@ function App() {
                   <span>
                     <Check size={14} />
                   </span>
+
                   {item}
                 </div>
               ))}
@@ -454,14 +530,16 @@ function App() {
           </div>
         </section>
 
-        {/* TESTIMONIAL PLACEHOLDER */}
+        {/* TESTIMONIAL */}
         <section className="testimonial section">
           <div className="container testimonial-inner">
             <p className="eyebrow">THE COLLABORATION</p>
+
             <blockquote>
               “Beautiful content starts with beautiful work — and the right
               collaboration helps your work tell its story.”
             </blockquote>
+
             <span>— PARIDHI SHARMA</span>
           </div>
         </section>
@@ -471,6 +549,7 @@ function App() {
           <div className="container faq-grid">
             <div>
               <p className="eyebrow">FAQ</p>
+
               <h2>
                 Before we
                 <br />
@@ -487,6 +566,7 @@ function App() {
                     }
                   >
                     <span>{faq.question}</span>
+
                     <ChevronDown
                       size={18}
                       className={activeFaq === index ? "rotate" : ""}
@@ -509,6 +589,7 @@ function App() {
           <div className="container contact-grid">
             <div className="contact-copy">
               <p className="eyebrow">LET'S CREATE TOGETHER</p>
+
               <h2>
                 Ready to
                 <br />
@@ -541,11 +622,17 @@ function App() {
               <div className="form-row">
                 <label>
                   Your Name
-                  <input type="text" placeholder="Enter your name" required />
+
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                  />
                 </label>
 
                 <label>
                   Business / Parlour
+
                   <input
                     type="text"
                     placeholder="Business name"
@@ -557,6 +644,7 @@ function App() {
               <div className="form-row">
                 <label>
                   Phone Number
+
                   <input
                     type="tel"
                     placeholder="10-digit mobile number"
@@ -566,16 +654,23 @@ function App() {
 
                 <label>
                   City
-                  <input type="text" placeholder="Your city" required />
+
+                  <input
+                    type="text"
+                    placeholder="Your city"
+                    required
+                  />
                 </label>
               </div>
 
               <label>
                 Collaboration Type
+
                 <select defaultValue="">
                   <option value="" disabled>
                     Select a service
                   </option>
+
                   <option>Beauty Model Shoot</option>
                   <option>Bridal Makeup</option>
                   <option>Party / Occasion Makeup</option>
@@ -586,18 +681,23 @@ function App() {
 
               <label>
                 Preferred Date
+
                 <input type="date" />
               </label>
 
               <label>
                 Tell us about your shoot
+
                 <textarea
                   rows="4"
                   placeholder="Tell us about your idea, makeup look or content requirement..."
                 />
               </label>
 
-              <button className="button button-dark form-submit" type="submit">
+              <button
+                className="button button-dark form-submit"
+                type="submit"
+              >
                 Send Collaboration Enquiry
                 <ArrowRight size={17} />
               </button>
@@ -616,13 +716,22 @@ function App() {
         <div className="container footer-top">
           <div>
             <div className="footer-brand">PARIDHI SHARMA</div>
+
             <p>Beauty Model & Creative Collaborator</p>
           </div>
 
           <div className="footer-links">
-            <button onClick={() => scrollTo("services")}>Services</button>
-            <button onClick={() => scrollTo("portfolio")}>Portfolio</button>
-            <button onClick={() => scrollTo("contact")}>Contact</button>
+            <button onClick={() => scrollTo("services")}>
+              Services
+            </button>
+
+            <button onClick={() => scrollTo("portfolio")}>
+              Portfolio
+            </button>
+
+            <button onClick={() => scrollTo("contact")}>
+              Contact
+            </button>
           </div>
 
           <a
@@ -638,6 +747,7 @@ function App() {
 
         <div className="container footer-bottom">
           <span>© {new Date().getFullYear()} Paridhi Sharma</span>
+
           <span>Beauty Model & Creative Collaborator</span>
         </div>
       </footer>
@@ -645,15 +755,23 @@ function App() {
       {/* MOBILE BOTTOM NAV */}
       <div className="mobile-bottom-nav">
         <button onClick={() => scrollTo("home")}>Home</button>
+
         <button onClick={() => scrollTo("portfolio")}>Work</button>
+
         <button
           className="mobile-book"
           onClick={() => scrollTo("contact")}
         >
           Book
         </button>
-        <button onClick={() => scrollTo("services")}>Services</button>
-        <button onClick={() => scrollTo("contact")}>Contact</button>
+
+        <button onClick={() => scrollTo("services")}>
+          Services
+        </button>
+
+        <button onClick={() => scrollTo("contact")}>
+          Contact
+        </button>
       </div>
     </div>
   );
