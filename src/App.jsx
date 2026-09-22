@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   ArrowRight,
   Check,
@@ -16,25 +15,25 @@ const services = [
   {
     number: "01",
     title: "Beauty Model Shoots",
-    text: "Professional beauty modelling for makeup artists, salons and beauty professionals.",
+    text: "Professional beauty model collaborations for makeup artists, salons, beauty professionals and brands.",
     image: "/images/02_service_beauty_model_4x5.png",
   },
   {
     number: "02",
     title: "Manicure & Pedicure",
-    text: "Before, process and after content that clearly showcases your beauty work.",
-    image: "/images/02_service_beauty_model_4x5.png",
+    text: "Model-based before, process and after content to showcase your nail and beauty work.",
+    image: "/images/07_portfolio_beauty_look_03_4x5.png",
   },
   {
     number: "03",
     title: "Bridal Makeup",
-    text: "Elegant bridal looks created to be photographed, filmed and showcased beautifully.",
+    text: "Bridal makeup model collaborations created for professional photos, videos, reels and portfolios.",
     image: "/images/03_service_bridal_makeup_4x5.png",
   },
   {
     number: "04",
     title: "Party & Occasion Makeup",
-    text: "Creative makeup looks for portfolios, social media campaigns and promotional content.",
+    text: "Creative makeup model shoots for portfolios, social media campaigns and promotional content.",
     image: "/images/04_service_occasion_makeup_4x5.png",
   },
 ];
@@ -74,24 +73,44 @@ const portfolio = [
 
 const faqs = [
   {
-    question: "Who is this service for?",
+    question: "Who can book Paridhi?",
     answer:
-      "This collaboration is designed for beauty parlours, makeup artists, salons and beauty professionals who want professional model-based photos and videos for their portfolio and social media.",
+      "Makeup artists, beauty parlours, salons, nail artists, bridal makeup artists, beauty brands, photographers and influencers can book a collaboration.",
   },
   {
-    question: "Who manages the makeup and shoot setup?",
+    question: "What does Paridhi provide?",
     answer:
-      "The beauty professional generally manages the makeup, costume, location and shoot setup. Paridhi comes as the beauty model and creative collaborator.",
+      "Paridhi joins the collaboration as the beauty model. The client or beauty professional generally provides the makeup, costume, location and creative setup.",
   },
   {
-    question: "Can you arrange a professional photographer?",
+    question: "Who arranges the photographer or videographer?",
     answer:
-      "Yes. If you need a professional camera person, photographer or videographer, we can help arrange one through available contacts.",
+      "The client or professional can arrange their own photographer or videographer. If required, photographer or videographer support can also be arranged through our available contacts.",
   },
   {
-    question: "Can I book a manicure or pedicure content shoot?",
+    question: "Can I book reels or video content?",
     answer:
-      "Yes. The service can include before, process and after content so the transformation can be presented clearly on social media.",
+      "Yes. Beauty reels, short-form videos and other planned video content can be included as part of the collaboration.",
+  },
+  {
+    question: "Where is Paridhi available?",
+    answer:
+      "Paridhi is based in Indore and is available anywhere in Indore. Selected outstation cities currently include Bhopal, Jhansi and Lalitpur. Other cities may also be possible depending on schedule and travel requirements.",
+  },
+  {
+    question: "How does booking work?",
+    answer:
+      "Booking can be requested through WhatsApp, call or the website enquiry form. The date is confirmed according to availability and schedule. Booking requires 100% advance payment.",
+  },
+  {
+    question: "How long is a booking?",
+    answer:
+      "A single service booking generally takes around 2 to 5 hours depending on the shoot and content requirement.",
+  },
+  {
+    question: "Is pricing displayed on the website?",
+    answer:
+      "Pricing is provided on enquiry. Please contact us with your shoot requirement, preferred date and location for pricing details.",
   },
 ];
 
@@ -108,36 +127,77 @@ function App() {
     setMenuOpen(false);
   };
 
+  const openWhatsApp = (message = "") => {
+    const whatsappUrl = `https://wa.me/919569947645${
+      message ? `?text=${encodeURIComponent(message)}` : ""
+    }`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const handleEnquirySubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const name = formData.get("name")?.trim();
+    const business = formData.get("business")?.trim();
+    const phone = formData.get("phone")?.trim();
+    const city = formData.get("city")?.trim();
+    const service = formData.get("service");
+    const date = formData.get("date");
+    const message = formData.get("message")?.trim();
+
+    const whatsappMessage = `Hello Paridhi,
+
+I would like to enquire about a collaboration with Fashnora.
+
+Name: ${name}
+Business / Professional Name: ${business || "Not provided"}
+WhatsApp / Phone: ${phone}
+City: ${city || "Not provided"}
+Service: ${service}
+Preferred Date: ${date || "Not specified"}
+
+Shoot Requirement:
+${message || "Not provided"}
+
+I understand that booking is subject to date and schedule availability.
+
+Thank you.`;
+
+    openWhatsApp(whatsappMessage);
+
+    form.reset();
+  };
+
   return (
     <div className="site">
       {/* HEADER */}
       <header className="header">
         <div className="container nav">
           <button className="brand" onClick={() => scrollTo("home")}>
-            <span className="brand-mark">PS</span>
+            <span className="brand-mark">F</span>
 
             <span>
-              <strong>PARIDHI</strong>
-              <small>BEAUTY MODEL</small>
+              <strong>FASHNORA</strong>
+              <small>PARIDHI SHARMA</small>
             </span>
           </button>
 
           <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
             <button onClick={() => scrollTo("home")}>Home</button>
             <button onClick={() => scrollTo("services")}>Services</button>
-            <button onClick={() => scrollTo("portfolio")}>
-              Portfolio
-            </button>
-            <button onClick={() => scrollTo("process")}>
-              How It Works
-            </button>
+            <button onClick={() => scrollTo("portfolio")}>Portfolio</button>
+            <button onClick={() => scrollTo("process")}>How It Works</button>
             <button onClick={() => scrollTo("contact")}>Contact</button>
           </nav>
 
           <div className="nav-actions">
             <a
               className="instagram-icon"
-              href="https://instagram.com"
+              href="https://www.instagram.com/paridhi_9140"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -156,8 +216,8 @@ function App() {
         </div>
       </header>
 
-      {/* HERO */}
       <main>
+        {/* HERO */}
         <section className="hero" id="home">
           <div className="hero-image">
             <img
@@ -169,7 +229,7 @@ function App() {
           <div className="hero-content container">
             <p className="eyebrow">
               <Sparkles size={14} />
-              BEAUTY MODEL & CREATIVE COLLABORATOR
+              FASHNORA · BEAUTY MODEL & CREATIVE COLLABORATOR
             </p>
 
             <h1>
@@ -179,8 +239,8 @@ function App() {
             </h1>
 
             <p className="hero-text">
-              Helping beauty artists and salons turn their makeup and beauty
-              work into beautiful, professional content.
+              Professional beauty model collaborations for makeup artists,
+              salons, beauty professionals, brands and creators.
             </p>
 
             <div className="hero-buttons">
@@ -234,15 +294,16 @@ function App() {
 
             <div className="intro-copy">
               <p>
-                A great makeup artist creates beautiful work. The right model,
-                photography and content help that work become a portfolio that
-                attracts the next client.
+                Great beauty work deserves professional visual content.
+                Paridhi Sharma collaborates as a beauty model so makeup
+                artists and beauty professionals can showcase their work
+                through photographs, reels and videos.
               </p>
 
               <p>
-                Paridhi collaborates with beauty professionals as a model for
-                makeup shoots, beauty content and transformation-focused social
-                media creatives.
+                Through Fashnora, collaborations are available for beauty
+                model shoots, bridal makeup, occasion makeup, manicure and
+                pedicure content, reels and commercial beauty projects.
               </p>
             </div>
           </div>
@@ -271,19 +332,34 @@ function App() {
             <div className="service-grid">
               {services.map((service) => (
                 <article className="service-card" key={service.number}>
-                  <span className="service-number">{service.number}</span>
-
-                  <img
-                    src={service.image}
-                    alt={service.title}
+                  <div
                     style={{
                       width: "100%",
-                      height: "230px",
-                      objectFit: "cover",
-                      display: "block",
-                      margin: "24px 0 25px",
+                      aspectRatio: "4 / 5",
+                      overflow: "hidden",
+                      marginBottom: "22px",
+                      borderRadius: "2px",
                     }}
-                  />
+                  >
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+
+                  <span className="service-number">
+                    {service.number}
+                  </span>
+
+                  <div className="service-icon">
+                    <Sparkles size={20} />
+                  </div>
 
                   <h3>{service.title}</h3>
 
@@ -322,15 +398,7 @@ function App() {
               <div className="transformation-card">
                 <span>01</span>
 
-                <div
-                  className="fake-image before-image"
-                  style={{
-                    backgroundImage:
-                      "url('/images/02_service_beauty_model_4x5.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
+                <div className="fake-image before-image">
                   <span>BEFORE</span>
                 </div>
               </div>
@@ -338,15 +406,7 @@ function App() {
               <div className="transformation-card">
                 <span>02</span>
 
-                <div
-                  className="fake-image process-image"
-                  style={{
-                    backgroundImage:
-                      "url('/images/03_service_bridal_makeup_4x5.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
+                <div className="fake-image process-image">
                   <span>PROCESS</span>
                 </div>
               </div>
@@ -354,15 +414,7 @@ function App() {
               <div className="transformation-card">
                 <span>03</span>
 
-                <div
-                  className="fake-image after-image"
-                  style={{
-                    backgroundImage:
-                      "url('/images/04_service_occasion_makeup_4x5.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
+                <div className="fake-image after-image">
                   <span>AFTER</span>
                 </div>
               </div>
@@ -417,7 +469,9 @@ function App() {
               <div className="video-placeholder">
                 <button
                   className="play-button"
-                  onClick={() => alert("Video portfolio coming soon.")}
+                  onClick={() =>
+                    alert("Video portfolio will be added soon.")
+                  }
                   aria-label="Play video"
                 >
                   <Play size={25} fill="currentColor" />
@@ -425,7 +479,7 @@ function App() {
 
                 <div className="video-label">
                   <span>VIDEO PORTFOLIO</span>
-                  <strong>Watch the transformation</strong>
+                  <strong>Beauty · Reels · Content</strong>
                 </div>
               </div>
             </div>
@@ -452,8 +506,7 @@ function App() {
                 <h3>Tell us your idea</h3>
 
                 <p>
-                  Share your service, makeup concept, city and preferred shoot
-                  date.
+                  Share your service, concept, city and preferred shoot date.
                 </p>
               </div>
 
@@ -463,7 +516,7 @@ function App() {
                 <h3>Plan the shoot</h3>
 
                 <p>
-                  We discuss the look, setup, location and content requirements.
+                  Discuss the look, location, setup and content requirements.
                 </p>
               </div>
 
@@ -505,8 +558,8 @@ function App() {
               </h2>
 
               <p className="arrange-intro">
-                The beauty professional generally manages the makeup, costume,
-                location and overall shoot setup.
+                The beauty professional generally manages the makeup,
+                costume, location and overall shoot setup.
               </p>
             </div>
 
@@ -530,17 +583,17 @@ function App() {
           </div>
         </section>
 
-        {/* TESTIMONIAL */}
+        {/* COLLABORATION PHILOSOPHY */}
         <section className="testimonial section">
           <div className="container testimonial-inner">
             <p className="eyebrow">THE COLLABORATION</p>
 
             <blockquote>
-              “Beautiful content starts with beautiful work — and the right
-              collaboration helps your work tell its story.”
+              “Beautiful work deserves beautiful presentation — and the right
+              model can help your creativity come alive.”
             </blockquote>
 
-            <span>— PARIDHI SHARMA</span>
+            <span>— FASHNORA</span>
           </div>
         </section>
 
@@ -598,189 +651,75 @@ function App() {
 
               <p>
                 Tell us about your beauty service and the content you want to
-                create. We will get back to you to discuss the collaboration.
+                create. Send your enquiry directly through WhatsApp and we
+                will discuss the collaboration.
               </p>
 
-              <a
+              <button
                 className="whatsapp-button"
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noreferrer"
+                type="button"
+                onClick={() =>
+                  openWhatsApp(
+                    "Hello Paridhi, I would like to enquire about a collaboration with Fashnora."
+                  )
+                }
               >
                 <MessageCircle size={19} />
                 Chat on WhatsApp
-              </a>
+              </button>
+
+              <div style={{ marginTop: "24px" }}>
+                <p style={{ marginBottom: "8px" }}>
+                  <strong>Call / WhatsApp:</strong> 9569947645
+                </p>
+
+                <p>
+                  <strong>Email:</strong> info@fashnora369.com
+                </p>
+              </div>
             </div>
 
             <form
-  className="lead-form"
-  onSubmit={(e) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const name = formData.get("name")?.trim();
-    const business = formData.get("business")?.trim();
-    const phone = formData.get("phone")?.trim();
-    const service = formData.get("service");
-    const date = formData.get("date");
-    const message = formData.get("message")?.trim();
-
-    const whatsappMessage = `Hello Paridhi,
-
-I would like to enquire about a collaboration with Fashnora.
-
-Name: ${name}
-Business / Professional Name: ${business || "Not provided"}
-WhatsApp / Phone: ${phone}
-Service: ${service}
-Preferred Date: ${date || "Not specified"}
-
-Shoot Requirement:
-${message || "Not provided"}
-
-I understand that booking is subject to date and schedule availability.
-
-Thank you.`;
-
-    const whatsappUrl = `https://wa.me/919569947645?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
-
-    form.reset();
-  }}
->
-  <div className="form-row">
-    <label>
-      Your Name
-      <input
-        type="text"
-        name="name"
-        placeholder="Enter your name"
-        required
-      />
-    </label>
-
-    <label>
-      Business / Professional Name
-      <input
-        type="text"
-        name="business"
-        placeholder="Studio, Salon, Brand, etc."
-      />
-    </label>
-  </div>
-
-  <div className="form-row">
-    <label>
-      WhatsApp / Phone
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Enter your number"
-        required
-      />
-    </label>
-
-    <label>
-      Service
-      <select name="service" required defaultValue="">
-        <option value="" disabled>
-          Select a service
-        </option>
-        <option value="Beauty Model Shoot">
-          Beauty Model Shoot
-        </option>
-        <option value="Bridal Makeup Model Shoot">
-          Bridal Makeup Model Shoot
-        </option>
-        <option value="Party / Occasion Makeup Model Shoot">
-          Party / Occasion Makeup Model Shoot
-        </option>
-        <option value="Manicure / Pedicure Model Shoot">
-          Manicure / Pedicure Model Shoot
-        </option>
-        <option value="Beauty Reels / Video Shoot">
-          Beauty Reels / Video Shoot
-        </option>
-        <option value="Commercial / Brand Collaboration">
-          Commercial / Brand Collaboration
-        </option>
-        <option value="Other">
-          Other
-        </option>
-      </select>
-    </label>
-  </div>
-
-  <label>
-    Preferred Date
-    <input type="date" name="date" />
-  </label>
-
-  <label>
-    Tell us about your shoot
-    <textarea
-      name="message"
-      rows="5"
-      placeholder="Tell us about your makeup look, shoot idea, content requirement or collaboration..."
-    />
-  </label>
-
-  <button
-    className="button button-dark form-submit"
-    type="submit"
-  >
-    Send Collaboration Enquiry
-    <ArrowRight size={17} />
-  </button>
-
-  <p className="form-note">
-    Your enquiry will open in WhatsApp. Booking is subject to
-    date and schedule availability.
-  </p>
-</form>
+              className="lead-form"
+              onSubmit={handleEnquirySubmit}
+            >
               <div className="form-row">
                 <label>
                   Your Name
-
                   <input
                     type="text"
+                    name="name"
                     placeholder="Enter your name"
                     required
                   />
                 </label>
 
                 <label>
-                  Business / Parlour
-
+                  Business / Professional Name
                   <input
                     type="text"
-                    placeholder="Business name"
-                    required
+                    name="business"
+                    placeholder="Studio, Salon, Brand, etc."
                   />
                 </label>
               </div>
 
               <div className="form-row">
                 <label>
-                  Phone Number
-
+                  WhatsApp / Phone
                   <input
                     type="tel"
-                    placeholder="10-digit mobile number"
+                    name="phone"
+                    placeholder="Enter your number"
                     required
                   />
                 </label>
 
                 <label>
                   City
-
                   <input
                     type="text"
+                    name="city"
                     placeholder="Your city"
                     required
                   />
@@ -790,31 +729,61 @@ Thank you.`;
               <label>
                 Collaboration Type
 
-                <select defaultValue="">
+                <select
+                  name="service"
+                  defaultValue=""
+                  required
+                >
                   <option value="" disabled>
                     Select a service
                   </option>
 
-                  <option>Beauty Model Shoot</option>
-                  <option>Bridal Makeup</option>
-                  <option>Party / Occasion Makeup</option>
-                  <option>Manicure / Pedicure Content</option>
-                  <option>Other</option>
+                  <option value="Beauty Model Shoot">
+                    Beauty Model Shoot
+                  </option>
+
+                  <option value="Bridal Makeup Model Shoot">
+                    Bridal Makeup Model Shoot
+                  </option>
+
+                  <option value="Party / Occasion Makeup Model Shoot">
+                    Party / Occasion Makeup Model Shoot
+                  </option>
+
+                  <option value="Manicure / Pedicure Model Shoot">
+                    Manicure / Pedicure Model Shoot
+                  </option>
+
+                  <option value="Beauty Reels / Video Shoot">
+                    Beauty Reels / Video Shoot
+                  </option>
+
+                  <option value="Commercial / Brand Collaboration">
+                    Commercial / Brand Collaboration
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
                 </select>
               </label>
 
               <label>
                 Preferred Date
 
-                <input type="date" />
+                <input
+                  type="date"
+                  name="date"
+                />
               </label>
 
               <label>
                 Tell us about your shoot
 
                 <textarea
-                  rows="4"
-                  placeholder="Tell us about your idea, makeup look or content requirement..."
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us about your makeup look, shoot idea, content requirement or collaboration..."
                 />
               </label>
 
@@ -827,8 +796,9 @@ Thank you.`;
               </button>
 
               <p className="form-note">
-                Your details will only be used to contact you regarding the
-                collaboration.
+                Your enquiry will open in WhatsApp. Booking is subject to
+                date and schedule availability. 100% advance payment is
+                required to confirm a booking.
               </p>
             </form>
           </div>
@@ -839,9 +809,13 @@ Thank you.`;
       <footer className="footer">
         <div className="container footer-top">
           <div>
-            <div className="footer-brand">PARIDHI SHARMA</div>
+            <div className="footer-brand">FASHNORA</div>
 
-            <p>Beauty Model & Creative Collaborator</p>
+            <p>
+              Paridhi Sharma
+              <br />
+              Beauty Model & Creative Collaborator
+            </p>
           </div>
 
           <div className="footer-links">
@@ -859,7 +833,7 @@ Thank you.`;
           </div>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/paridhi_9140"
             target="_blank"
             rel="noreferrer"
             className="footer-social"
@@ -870,17 +844,25 @@ Thank you.`;
         </div>
 
         <div className="container footer-bottom">
-          <span>© {new Date().getFullYear()} Paridhi Sharma</span>
+          <span>
+            © {new Date().getFullYear()} Fashnora · Paridhi Sharma
+          </span>
 
-          <span>Beauty Model & Creative Collaborator</span>
+          <span>
+            Beauty Model & Creative Collaborator
+          </span>
         </div>
       </footer>
 
       {/* MOBILE BOTTOM NAV */}
       <div className="mobile-bottom-nav">
-        <button onClick={() => scrollTo("home")}>Home</button>
+        <button onClick={() => scrollTo("home")}>
+          Home
+        </button>
 
-        <button onClick={() => scrollTo("portfolio")}>Work</button>
+        <button onClick={() => scrollTo("portfolio")}>
+          Work
+        </button>
 
         <button
           className="mobile-book"
