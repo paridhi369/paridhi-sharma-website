@@ -38,8 +38,7 @@ const portfolio = [
   {
     title: "Bridal Editorial",
     category: "Bridal Makeup",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85",
+    image: "/images/05_portfolio_bridal_look_01_4x5.png",
   },
   {
     title: "Beauty Portrait",
