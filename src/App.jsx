@@ -613,12 +613,136 @@ function App() {
             </div>
 
             <form
-              className="lead-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Thank you! Your enquiry has been received.");
-              }}
-            >
+  className="lead-form"
+  onSubmit={(e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const name = formData.get("name")?.trim();
+    const business = formData.get("business")?.trim();
+    const phone = formData.get("phone")?.trim();
+    const service = formData.get("service");
+    const date = formData.get("date");
+    const message = formData.get("message")?.trim();
+
+    const whatsappMessage = `Hello Paridhi,
+
+I would like to enquire about a collaboration with Fashnora.
+
+Name: ${name}
+Business / Professional Name: ${business || "Not provided"}
+WhatsApp / Phone: ${phone}
+Service: ${service}
+Preferred Date: ${date || "Not specified"}
+
+Shoot Requirement:
+${message || "Not provided"}
+
+I understand that booking is subject to date and schedule availability.
+
+Thank you.`;
+
+    const whatsappUrl = `https://wa.me/919569947645?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
+
+    form.reset();
+  }}
+>
+  <div className="form-row">
+    <label>
+      Your Name
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        required
+      />
+    </label>
+
+    <label>
+      Business / Professional Name
+      <input
+        type="text"
+        name="business"
+        placeholder="Studio, Salon, Brand, etc."
+      />
+    </label>
+  </div>
+
+  <div className="form-row">
+    <label>
+      WhatsApp / Phone
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Enter your number"
+        required
+      />
+    </label>
+
+    <label>
+      Service
+      <select name="service" required defaultValue="">
+        <option value="" disabled>
+          Select a service
+        </option>
+        <option value="Beauty Model Shoot">
+          Beauty Model Shoot
+        </option>
+        <option value="Bridal Makeup Model Shoot">
+          Bridal Makeup Model Shoot
+        </option>
+        <option value="Party / Occasion Makeup Model Shoot">
+          Party / Occasion Makeup Model Shoot
+        </option>
+        <option value="Manicure / Pedicure Model Shoot">
+          Manicure / Pedicure Model Shoot
+        </option>
+        <option value="Beauty Reels / Video Shoot">
+          Beauty Reels / Video Shoot
+        </option>
+        <option value="Commercial / Brand Collaboration">
+          Commercial / Brand Collaboration
+        </option>
+        <option value="Other">
+          Other
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <label>
+    Preferred Date
+    <input type="date" name="date" />
+  </label>
+
+  <label>
+    Tell us about your shoot
+    <textarea
+      name="message"
+      rows="5"
+      placeholder="Tell us about your makeup look, shoot idea, content requirement or collaboration..."
+    />
+  </label>
+
+  <button
+    className="button button-dark form-submit"
+    type="submit"
+  >
+    Send Collaboration Enquiry
+    <ArrowRight size={17} />
+  </button>
+
+  <p className="form-note">
+    Your enquiry will open in WhatsApp. Booking is subject to
+    date and schedule availability.
+  </p>
+</form>
               <div className="form-row">
                 <label>
                   Your Name
