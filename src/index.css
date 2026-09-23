@@ -1858,7 +1858,8 @@ h2 em {
 
   .premium-footer-info {
     padding-top: 20px;
-padding-bottom: 20px;
+    padding-bottom: 20px;
+  }
 
   .premium-footer-decoration {
     display: none;
@@ -1867,4 +1868,5 @@ padding-bottom: 20px;
   .footer-decoration {
     display: none;
   }
+
 }
