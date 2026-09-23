@@ -1490,9 +1490,9 @@ h2 em {
   z-index: 2;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.15fr 1.35fr;
-  gap: 70px;
-  padding-top: 90px;
-  padding-bottom: 70px;
+  gap: 55px;
+  padding-top: 55px;
+  padding-bottom: 45px;
 }
 
 /* ---------------- BRAND ---------------- */
