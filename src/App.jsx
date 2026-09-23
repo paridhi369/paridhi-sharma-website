@@ -548,9 +548,6 @@ Thank you.`;
                     <span>{item.category}</span>
                     <h3>{item.title}</h3>
 
-                    <small>
-                      AI Visualization · Illustrative Project View
-                    </small>
                   </div>
 
                 </article>
