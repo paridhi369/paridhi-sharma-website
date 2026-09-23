@@ -2197,3 +2197,229 @@ h2 em {
     min-height: 55px;
   }
 }
+/* =========================================================
+   FINAL COMPACT FOOTER
+   SMART-SPACE INSPIRED HEIGHT
+   ========================================================= */
+
+.premium-footer {
+  background: #151313;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* ================= MAIN FOOTER ================= */
+
+.premium-footer-main {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.25fr;
+
+  gap: 45px;
+
+  padding-top: 28px !important;
+  padding-bottom: 25px !important;
+
+  align-items: start;
+}
+
+/* ================= BRAND ================= */
+
+.premium-footer-logo {
+  width: 64px !important;
+  height: 64px !important;
+
+  max-width: 64px !important;
+  max-height: 64px !important;
+
+  object-fit: contain;
+
+  margin-bottom: 10px !important;
+}
+
+.premium-footer-brand h3 {
+  margin: 0 0 4px !important;
+
+  font-size: 19px !important;
+  line-height: 1.15;
+}
+
+.premium-footer-brand p {
+  margin: 0 !important;
+
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+.premium-footer-info {
+  margin-top: 12px !important;
+  padding-top: 10px !important;
+}
+
+.premium-footer-info p {
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+/* ================= COLUMN HEADINGS ================= */
+
+.premium-footer-column h4 {
+  margin: 0 0 12px !important;
+
+  font-size: 11px !important;
+  letter-spacing: 0.16em;
+}
+
+.premium-footer-column h4::after {
+  width: 28px;
+  margin-top: 6px;
+}
+
+/* ================= LINKS ================= */
+
+.premium-footer-column a,
+.premium-footer-column button {
+  margin: 0 0 7px !important;
+
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+}
+
+/* ================= CONTACT ================= */
+
+.premium-footer-contact {
+  gap: 7px !important;
+}
+
+.premium-footer-contact a {
+  gap: 8px;
+
+  font-size: 13px !important;
+}
+
+.premium-footer-contact-icon {
+  width: 23px;
+  height: 23px;
+
+  flex-basis: 23px;
+}
+
+/* ================= META STRIP ================= */
+
+.premium-footer-meta {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+
+  grid-template-columns: 1fr 1fr 0.7fr;
+
+  min-height: 0 !important;
+}
+
+.premium-footer-meta-item {
+  min-height: 50px !important;
+
+  padding: 8px 18px !important;
+}
+
+.premium-footer-meta-item h5 {
+  margin: 0 0 3px !important;
+
+  font-size: 9px !important;
+}
+
+.premium-footer-meta-item p {
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+}
+
+/* ================= COPYRIGHT ================= */
+
+.premium-footer-bottom {
+  width: min(1180px, calc(100% - 48px));
+
+  min-height: 42px !important;
+
+  padding: 0 !important;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  gap: 15px;
+}
+
+.premium-footer-bottom span {
+  font-size: 10px !important;
+  line-height: 1.3 !important;
+}
+
+/* ================= DECORATION ================= */
+
+.premium-footer-decoration,
+.footer-decoration {
+  opacity: 0.08 !important;
+}
+
+
+/* =========================================================
+   EXTRA DESKTOP COMPRESSION
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .premium-footer-main {
+    padding-top: 25px !important;
+    padding-bottom: 20px !important;
+    gap: 40px;
+  }
+
+  .premium-footer-logo {
+    width: 60px !important;
+    height: 60px !important;
+
+    max-width: 60px !important;
+    max-height: 60px !important;
+
+    margin-bottom: 8px !important;
+  }
+
+  .premium-footer-brand h3 {
+    font-size: 18px !important;
+  }
+
+  .premium-footer-info {
+    margin-top: 9px !important;
+    padding-top: 8px !important;
+  }
+
+  .premium-footer-column h4 {
+    margin-bottom: 10px !important;
+  }
+
+  .premium-footer-column a,
+  .premium-footer-column button {
+    margin-bottom: 6px !important;
+  }
+
+  .premium-footer-meta-item {
+    min-height: 46px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
+
+  .premium-footer-bottom {
+    min-height: 38px !important;
+  }
+}
+
+
+/* =========================================================
+   REMOVE EXTRA SPACE CREATED BY OLD FOOTER RULES
+   ========================================================= */
+
+.premium-footer-main > *,
+.premium-footer-meta > *,
+.premium-footer-bottom > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
