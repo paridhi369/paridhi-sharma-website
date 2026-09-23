@@ -1319,3 +1319,101 @@ h2 em {
     grid-auto-rows: 190px;
   }
 }
+/* =========================================================
+   FASHNORA HEADER LOGO FIX
+   ========================================================= */
+
+.header .nav {
+  min-height: 82px;
+}
+
+.header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+}
+
+.header .brand-logo {
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  min-width: 64px !important;
+  min-height: 64px !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex: 0 0 64px;
+}
+
+.header .brand-person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.header .brand-person strong {
+  font-size: 13px;
+  line-height: 1.1;
+  letter-spacing: 0.14em;
+}
+
+.header .brand-person small {
+  font-size: 8px;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+/* Keep navigation horizontally aligned */
+.header .nav {
+  display: flex;
+  align-items: center;
+}
+
+.header .nav-links {
+  margin-left: auto;
+}
+
+.header .nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   MOBILE HEADER
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .header .nav {
+    min-height: 68px;
+  }
+
+  .header .brand-logo {
+    width: 50px !important;
+    height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    flex-basis: 50px;
+  }
+
+  .header .brand {
+    gap: 8px;
+  }
+
+  .header .brand-person strong {
+    font-size: 10px;
+  }
+
+  .header .brand-person small {
+    font-size: 7px;
+  }
+}
