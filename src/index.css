@@ -1742,7 +1742,7 @@ h2 em {
 }
 
 .premium-footer-bottom-inner {
-  min-height: 82px;
+  min-height: 64px;
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
