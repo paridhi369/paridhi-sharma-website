@@ -973,32 +973,60 @@ Thank you.`;
 
       </main>
 
-      {/* FOOTER */}
-      <footer className="footer">
+            {/* PREMIUM FASHNORA FOOTER */}
+      <footer className="footer premium-footer" id="footer">
 
-        <div className="container footer-top">
+        <div className="footer-decoration footer-decoration-left">
+          ✦
+        </div>
 
-          <div>
+        <div className="footer-decoration footer-decoration-right">
+          ♡
+        </div>
+
+        <div className="container premium-footer-main">
+
+          {/* BRAND */}
+          <div className="premium-footer-brand">
+
             <img
               src="/images/01_Fashnora_Logo.png"
               alt="Fashnora India"
-              style={{
-                width: "110px",
-                height: "110px",
-                objectFit: "contain",
-                display: "block",
-                marginBottom: "14px",
-              }}
+              className="premium-footer-logo"
             />
 
-            <p>
+            <h3>Fashnora India</h3>
+
+            <div className="premium-footer-name">
               Paridhi Sharma
-              <br />
-              Beauty Model & Creative Collaborator
+            </div>
+
+            <p className="premium-footer-role">
+              Beauty Model &amp; Creative Collaborator
             </p>
+
+            <div className="footer-gold-line"></div>
+
+            <p className="premium-footer-tagline">
+              Celebrating Beauty
+              <br />
+              <em>in Every Frame.</em>
+              <span> ♡</span>
+            </p>
+
           </div>
 
-          <div className="footer-links">
+
+          {/* EXPLORE */}
+          <div className="premium-footer-column">
+
+            <h4>EXPLORE</h4>
+
+            <div className="footer-heading-line"></div>
+
+            <button onClick={() => scrollTo("home")}>
+              Home
+            </button>
 
             <button onClick={() => scrollTo("services")}>
               Services
@@ -1008,65 +1036,186 @@ Thank you.`;
               Portfolio
             </button>
 
+            <button onClick={() => scrollTo("process")}>
+              How It Works
+            </button>
+
             <button onClick={() => scrollTo("contact")}>
               Contact
             </button>
 
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "14px",
-              flexDirection: "column",
-            }}
-          >
+
+          {/* COLLABORATE */}
+          <div className="premium-footer-column">
+
+            <h4>COLLABORATE</h4>
+
+            <div className="footer-heading-line"></div>
+
+            <button onClick={() => scrollTo("services")}>
+              Beauty Model Shoots
+            </button>
+
+            <button onClick={() => scrollTo("services")}>
+              Bridal Makeup
+            </button>
+
+            <button onClick={() => scrollTo("services")}>
+              Manicure &amp; Pedicure
+            </button>
+
+            <button onClick={() => scrollTo("services")}>
+              Beauty Content
+            </button>
+
+            <button onClick={() => scrollTo("contact")}>
+              Book a Collaboration
+            </button>
+
+          </div>
+
+
+          {/* CONNECT */}
+          <div className="premium-footer-column premium-footer-connect">
+
+            <h4>CONNECT</h4>
+
+            <div className="footer-heading-line"></div>
+
+            <a href="tel:+919569947645">
+              <span className="footer-contact-icon">⌕</span>
+              +91 95699 47645
+            </a>
+
+            <a href="mailto:info@fashnora369.com">
+              <span className="footer-contact-icon">✉</span>
+              info@fashnora369.com
+            </a>
+
+            <a
+              href="https://wa.me/919569947645"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="footer-contact-icon">◉</span>
+              WhatsApp
+            </a>
 
             <a
               href="https://www.instagram.com/paridhi_9140"
               target="_blank"
               rel="noreferrer"
-              className="footer-social"
             >
-              <Instagram size={18} />
+              <span className="footer-contact-icon">◎</span>
               Instagram
-            </a>
-
-            <a
-              href="https://www.facebook.com/people/Pari-Sharma/pfbid02wtSYwfkSUunarZQYFxxGUdSozsiEubJJd5XCmpAWtHHknjUgsRmPDAdzhvTBkYq4l/"
-              target="_blank"
-              rel="noreferrer"
-              className="footer-social"
-            >
-              Facebook
             </a>
 
             <a
               href="https://www.youtube.com/@paridhisharma6022"
               target="_blank"
               rel="noreferrer"
-              className="footer-social"
             >
+              <span className="footer-contact-icon">▶</span>
               YouTube
+            </a>
+
+            <a
+              href="https://www.facebook.com/people/Pari-Sharma/pfbid02wtSYwfkSUunarZQYFxxGUdSozsiEubJJd5XCmpAWtHHknjUgsRmPDAdzhvTBkYq4l/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="footer-contact-icon">f</span>
+              Facebook
             </a>
 
           </div>
 
         </div>
 
-        <div className="container footer-bottom">
 
-          <span>
-            © {new Date().getFullYear()} Fashnora · Paridhi Sharma
-          </span>
+        {/* SERVICE AREA */}
+        <div className="container premium-footer-info">
 
-          <span>
-            Beauty Model & Creative Collaborator
-          </span>
+          <div className="premium-footer-info-item">
+
+            <div className="premium-footer-info-icon">
+              ⌖
+            </div>
+
+            <div>
+              <span>SERVICE AREA</span>
+
+              <p>
+                Indore&nbsp; · &nbsp;Bhopal&nbsp; · &nbsp;Jhansi&nbsp; · &nbsp;Lalitpur
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="premium-footer-info-divider"></div>
+
+
+          <div className="premium-footer-info-item">
+
+            <div className="premium-footer-info-icon">
+              ◫
+            </div>
+
+            <div>
+              <span>AVAILABILITY</span>
+
+              <p>
+                Outstation collaborations available by schedule.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="premium-footer-info-divider"></div>
+
+
+          <div className="premium-footer-real">
+
+            <span>REAL PEOPLE</span>
+            <span>REAL BEAUTY</span>
+            <span>REAL STORIES</span>
+
+          </div>
+
+        </div>
+
+
+        {/* BOTTOM BAR */}
+        <div className="premium-footer-bottom">
+
+          <div className="container premium-footer-bottom-inner">
+
+            <div>
+              © {new Date().getFullYear()} Fashnora India · Paridhi Sharma
+              <br />
+              <span>All Rights Reserved.</span>
+            </div>
+
+            <div className="premium-footer-bottom-center">
+              <i></i>
+              Beauty Model &amp; Creative Collaborator
+              <i></i>
+            </div>
+
+            <div className="premium-footer-bottom-right">
+              Made for beauty professionals. ♡
+            </div>
+
+          </div>
 
         </div>
 
       </footer>
+
 
       {/* MOBILE BOTTOM NAV */}
       <div className="mobile-bottom-nav">
