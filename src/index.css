@@ -524,7 +524,7 @@ h2 em {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr)) auto;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) auto;
   gap: 15px;
   align-items: stretch;
 }
